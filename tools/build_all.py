@@ -57,14 +57,14 @@ for board in all_boards:
         exit_status = make_result.returncode
         success = FAILED
         fail_count += 1
-
-    print(os.scandir("_build/build-{}".format(board)))
     
     for entry in os.scandir("_build/build-{}".format(board)):
+        print(entry.name)
         for extension in ["zip", "hex", "uf2"]:
             if entry.name.endswith(extension):
                 if ("nosd" in entry.name) or ("s140" in entry.name) or ("s132" in entry.name):
                     shutil.copy(entry.path, bin_directory)
+                    print(entry.name)
 
     print(build_format.format(board, success, "{:.2f}s".format(build_duration), flash_size, sram_size))
 
