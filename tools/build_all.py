@@ -59,7 +59,6 @@ for board in all_boards:
         fail_count += 1
     
     for entry in os.scandir("_build/build-{}".format(board)):
-        print(entry.name)
         for extension in ["zip", "hex", "uf2"]:
             if entry.name.endswith(extension):
                 if ("nosd" in entry.name) or ("s140" in entry.name) or ("s132" in entry.name):
