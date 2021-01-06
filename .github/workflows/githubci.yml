@@ -36,7 +36,6 @@ jobs:
     - name: Build
       run: |
         python3 tools/build_all.py
-        python3 lib/uf2/utils/uf2conv.py -b $(BOOTLOADER_SIZE) -c -o $@ $(BUILD_PATH)/update-$(NAME).bin
       
     - name: Upload Release Asset
       if: github.event_name == 'release' && (github.event.action == 'published' || github.event.action == 'rerequested')
