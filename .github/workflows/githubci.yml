@@ -34,7 +34,8 @@ jobs:
         echo `echo $HOME/opt/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/*/.content/bin` >> $GITHUB_PATH
     
     - name: Build
-      run: python3 tools/build_all.py
+      run: |
+        python3 tools/build_all.py
       
     - name: Upload Release Asset
       if: github.event_name == 'release' && (github.event.action == 'published' || github.event.action == 'rerequested')
