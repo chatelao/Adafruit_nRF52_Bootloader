@@ -58,6 +58,8 @@ for board in all_boards:
         success = FAILED
         fail_count += 1
 
+    print(os.scandir("_build/build-{}".format(board)))
+    
     for entry in os.scandir("_build/build-{}".format(board)):
         for extension in ["zip", "hex", "uf2"]:
             if entry.name.endswith(extension):
